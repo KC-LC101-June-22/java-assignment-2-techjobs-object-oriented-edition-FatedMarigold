@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.Objects;
 
-public class JobField {
+public abstract class JobField {
     private int id;
     private static int nextid = 1;
     private String value;
