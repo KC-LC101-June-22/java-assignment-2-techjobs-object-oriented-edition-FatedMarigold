@@ -5,8 +5,8 @@ import java.util.Objects;
 public class Job {
 
     private int id;
-    private static int nextId = 1;
 
+    private static int nextId = 1;
     private String name;
     private Employer employer;
     private Location location;
@@ -17,8 +17,8 @@ public class Job {
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
 
-    public Job() {
-        id = nextId;
+    public Job(){
+        this.id = nextId;
         nextId++;
     }
 
@@ -69,9 +69,6 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
-    public int getId(){
-        return id;
-    }
 
     public String getName(){
         return name;
@@ -112,4 +109,9 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    public int getId() {
+        return id;
+    }
+
 }

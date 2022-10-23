@@ -3,11 +3,7 @@ package org.launchcode.techjobs.oo.test;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import org.launchcode.techjobs.oo.Employer;
-import org.launchcode.techjobs.oo.CoreCompetency;
-import org.launchcode.techjobs.oo.Location;
-import org.launchcode.techjobs.oo.PositionType;
-import org.launchcode.techjobs.oo.Job;
+import org.launchcode.techjobs.oo.*;
 
 
 import static org.junit.Assert.*;
@@ -70,12 +66,12 @@ public class JobTest {
         assertEquals("Quality control", job.getPositionType().toString());
         assertEquals("Persistence", job.getCoreCompetency().toString());
 
-        assertTrue(job.toString().contains("ID: " + job.getId()));
-        assertTrue(job.toString().contains("Name: " + job.getName()));
-        assertTrue(job.toString().contains("Employer: " + job.getEmployer().toString()));
-        assertTrue(job.toString().contains("Location: " + job.getLocation().toString()));
-        assertTrue(job.toString().contains("Position Type: " + job.getPositionType().toString()));
-        assertTrue(job.toString().contains("Core Competency: " + job.getCoreCompetency().toString()));
+        assertTrue(str.contains("ID: " + job.getId()));
+        assertTrue(str.contains("Name: " + job.getName()));
+        assertTrue(str.contains("Employer: " + job.getEmployer().toString()));
+        assertTrue(str.contains("Location: " + job.getLocation().toString()));
+        assertTrue(str.contains("Position Type: " + job.getPositionType().toString()));
+        assertTrue(str.contains("Core Competency: " + job.getCoreCompetency().toString()));
 
         //assertEquals(job.toString(),"\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n");
     }
@@ -83,8 +79,10 @@ public class JobTest {
     @Test
     public void testToStringHandlesEmptyField() {
         Job job1 = new Job("Product tester", new Employer(), new Location(), new PositionType(""), new CoreCompetency(""));
+        job1.toString();
 
-        assertEquals("1","1");
+        assertEquals("Data not available",job1.getEmployer().toString());
+        assertEquals("Data not available",job1.getLocation().toString());
 
         assertTrue(job1.toString().contains("Employer: Data not available"));
         assertTrue(job1.toString().contains("Location: Data not available"));
